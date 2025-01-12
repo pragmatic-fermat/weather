@@ -2,6 +2,19 @@ name = "weather-forecast"
 main = "src/worker.ts"
 compatibility_date = "2024-02-20"
 
+# Routes
+routes = [
+  { pattern = "/api/*", zone_name = "*" }
+]
+
+[build]
+command = "npm run build"
+watch_dir = "build"
+
+[site]
+bucket = "./dist"
+entry-point = "src/worker.ts"
+
 [vars]
 # You'll need to add your OpenWeather API key in the Cloudflare dashboard
 # or using wrangler secret put OPENWEATHER_API_KEY
